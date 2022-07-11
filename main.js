@@ -1,6 +1,6 @@
 /*******************
  * OUR HELPER CODE *
-*******************/
+ *******************/
 
 /*
  * Here we add the squares to the canvas dynamically.
@@ -15,7 +15,7 @@
  * To make the second one happen, the number to change
  * is the first argument to `repeat`, currently set at 10.
  */
-const gridWidth = 10;
+const gridWidth = 20;
 let count = 0;
 while (count <= gridWidth * gridWidth) {
   const canvas = document.querySelector('.canvas');
@@ -44,16 +44,33 @@ while (count <= gridWidth * gridWidth) {
 
 /***********
  * QUERIES *
-***********/
+ ***********/
 
 // Add queries for all your squares, palette colors, and brush here.
 // (Note the singular or plural used in that sentence!)
+
+let paletteColors = document.querySelectorAll('.palette .palette-color');
+
+let brush = document.querySelector('.current-brush');
+
+let canvasArea = document.querySelectorAll('.canvas div');
+
+let app = document.querySelector('.app');
+/*
+while (count <= gridWidth * gridWidth) {
+  const canvas = document.querySelector('.canvas');
+  const div = document.createElement('div');
+  div.className = 'square color-5';
+  canvas.appendChild(div);
+  count++;
+*/
+
 
 
 
 /****************************
  * EVENT LISTENER FUNCTIONS *
-****************************/
+ ****************************/
 
 // Now add some functions to handle clicking one particular square
 // and clicking one particular palette color. You can leave them
@@ -61,11 +78,87 @@ while (count <= gridWidth * gridWidth) {
 // run as event listeners (after the next step is set up) isn't a
 // bad idea for testing purposes.
 
+// event listener to change brush color based on color selection
+for (let i = 0; i < paletteColors.length; i++) {
+  paletteColors[i].addEventListener('click', function () {
+    console.log(paletteColors[i]);
+    console.log(brush.classList);
+    console.log(paletteColors.classList);
+    // paletteColors represents the list of 5 colors we composed
+    // parameter 1: current color to replace: brush.classList[1]
+    // parameter 2: new color: paletterColors[i].classList[1];
+    // palette is an array of 5 palette-color's
+    // palette-color is an array of color-1, color-2, color-3, color-4, color-5
+    // .replace(remove this parameter, and replace with this)
+    brush.classList.replace(brush.classList[1], paletteColors[i].classList[1]);
 
+    // remove and add
+    // doing it without .remove()
+
+    // brush.classList.remove(brush.classList[1]); 
+    // brush.classList.add(paletteColors[i].classList[1]);
+  })
+}
+
+brush.addEventListener('click', function () {
+  console.log(brush);
+});
+
+
+
+/***************************** 
+CANVAS AREA BASED ON COLOR CHOICE
+******************************/
+
+// for(let i = 0; i < canvasArea.length; i++){
+//   canvasArea[i].addEventListener('click', function(){
+//     console.log(canvasArea[i].classList);
+
+//   canvasArea[i].classList.replace(canvasArea[i].classList[1], brush.classList[1]);
+//   })
+// }
+
+for (let square of canvasArea) {
+  // square.addEventListener('click', function () {
+  //   console.log(square);
+  //   square.classList.replace(square.classList[1], brush.classList[1]);
+  // })
+
+
+
+  /*
+*  IF THE MOUSE IS CLICKED (DOWN) AND HOVERING REPLACE THE SQUARES BEING HOVERED OVER BY THE COLOR THATS BEEN SELECTED
+  */
+  square.addEventListener('mouseover', function () {
+    if(mouseDown === true){
+      square.classList.replace(square.classList[1], brush.classList[1]);
+    }
+  })
+}
+// document adds it to the entire page
+// document.addEventListener('', function(){
+//})
+let mouseDown = false;
+
+app.addEventListener('mousedown', function () {
+  console.log('mouse is down');
+  mouseDown = true;
+  console.log(`mousedown: ${mouseDown}`);
+});
+
+app.addEventListener('mouseup', function () {
+  console.log('mouse is up');
+  mouseDown = false; 
+  console.log(`mousedown: ${mouseDown}`);
+});
+
+// mousedown - 	The event occurs when the user presses a mouse button over an element
+
+// mouseup - The event occurs when a user releases a mouse button over an element
 
 /**************************
  * WIRING IT ALL TOGETHER *
-**************************/
+ **************************/
 
 // Now: wiring up our event listeners to our html node elements.
 // You'll need to add the appropriate event listener for each
