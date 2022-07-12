@@ -4,6 +4,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+
 }
 
 .headings {
@@ -37,7 +38,8 @@
   height: 30px;
 }
 
-.current-brush, .palette-color {
+.current-brush,
+.palette-color {
   width: 30px;
   height: 30px;
   border: 1px solid black;
@@ -73,21 +75,21 @@
 }
 
 .color-5 {
-background-color:rgb(62, 202, 109);
+  background-color: rgb(62, 202, 109);
 }
 
 .color-6 {
   background-color: yellow;
-  }
+}
 
 .color-7 {
   background-color: blue;
-    }
+}
 
 .color-8 {
   background-color: white;
-      }
+}
 
 #reset {
-  margin: 15px; 
+  margin: 15px;
 }
