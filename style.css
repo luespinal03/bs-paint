@@ -57,7 +57,7 @@
 }
 
 .color-1 {
-  background-color: aquamarine;
+  background-color: red;
 }
 
 .color-2 {
@@ -73,5 +73,17 @@
 }
 
 .color-5 {
-background-color: white;
+background-color:rgb(62, 202, 109);
 }
+
+.color-6 {
+  background-color: yellow;
+  }
+
+.color-7 {
+  background-color: blue;
+    }
+
+.color-8 {
+  background-color: white;
+      }
