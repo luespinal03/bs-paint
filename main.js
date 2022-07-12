@@ -177,7 +177,7 @@ let darkMode = document.querySelector('#darkMode');
 
 let paintAway = document.querySelector('.message');
 
-let h3 = document.querySelector('h3');
+let headings = document.querySelector('.headings');
 
 let resetButton = document.querySelector('#reset');
 
@@ -191,19 +191,21 @@ darkMode.addEventListener('click', function () {
 
   if (app.style.backgroundColor !== 'black') {
     app.style.backgroundColor = 'black';
-    paintAway.style.backgroundColor = 'rgb(62, 202, 109)';
-    h3.style.backgroundColor = 'rgb(62, 202, 109)';
+    headings.style.backgroundColor = 'rgb(62, 202, 109)';
     iconPalette.src = "https://cdn-icons-png.flaticon.com/512/1372/1372997.png"
 
   } else {
     app.style.backgroundColor = '';
-    paintAway.style.backgroundColor = '';
-    h3.style.backgroundColor = '';
+    headings.style.backgroundColor = '';
     iconPalette.src = "palette.png"
 
   }
   // app.style.backgroundColor = 'black';
 });
+
+
+
+// RESET BUTTON
 
 resetButton.addEventListener('click', function(){
   console.log('reset button');
