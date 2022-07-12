@@ -20,7 +20,7 @@ let count = 0;
 while (count <= gridWidth * gridWidth) {
   const canvas = document.querySelector('.canvas');
   const div = document.createElement('div');
-  div.className = 'square color-5';
+  div.className = 'square color-8';
   canvas.appendChild(div);
   count++;
 }
@@ -127,10 +127,10 @@ for (let square of canvasArea) {
 
 
   /*
-*  IF THE MOUSE IS CLICKED (DOWN) AND HOVERING REPLACE THE SQUARES BEING HOVERED OVER BY THE COLOR THATS BEEN SELECTED
-  */
+   *  IF THE MOUSE IS CLICKED (DOWN) AND HOVERING REPLACE THE SQUARES BEING HOVERED OVER BY THE COLOR THATS BEEN SELECTED
+   */
   square.addEventListener('mouseover', function () {
-    if(mouseDown === true){
+    if (mouseDown === true) {
       square.classList.replace(square.classList[1], brush.classList[1]);
     }
   })
@@ -141,15 +141,15 @@ for (let square of canvasArea) {
 let mouseDown = false;
 
 app.addEventListener('mousedown', function () {
-  console.log('mouse is down');
+  // console.log('mouse is down');
   mouseDown = true;
-  console.log(`mousedown: ${mouseDown}`);
+  // console.log(`mousedown: ${mouseDown}`);
 });
 
 app.addEventListener('mouseup', function () {
-  console.log('mouse is up');
-  mouseDown = false; 
-  console.log(`mousedown: ${mouseDown}`);
+  // console.log('mouse is up');
+  mouseDown = false;
+  // console.log(`mousedown: ${mouseDown}`);
 });
 
 // mousedown - 	The event occurs when the user presses a mouse button over an element
@@ -164,3 +164,59 @@ app.addEventListener('mouseup', function () {
 // You'll need to add the appropriate event listener for each
 // square and for each palette color from the functions you
 // wrote above.
+
+
+
+
+
+/**************************
+ * STRETCH GOALS SECTION *
+ **************************/
+
+let darkMode = document.querySelector('#darkMode');
+
+let paintAway = document.querySelector('.message');
+
+let h3 = document.querySelector('h3');
+
+let resetButton = document.querySelector('#reset');
+
+let white = document.querySelector('.palette-color color-8')
+
+let iconPalette = document.querySelector('.palette-icon');
+
+
+darkMode.addEventListener('click', function () {
+  console.log('darkMode button');
+
+  if (app.style.backgroundColor !== 'black') {
+    app.style.backgroundColor = 'black';
+    paintAway.style.backgroundColor = 'rgb(62, 202, 109)';
+    h3.style.backgroundColor = 'rgb(62, 202, 109)';
+    iconPalette.src = "https://cdn-icons-png.flaticon.com/512/1372/1372997.png"
+
+  } else {
+    app.style.backgroundColor = '';
+    paintAway.style.backgroundColor = '';
+    h3.style.backgroundColor = '';
+    iconPalette.src = "palette.png"
+
+  }
+  // app.style.backgroundColor = 'black';
+});
+
+resetButton.addEventListener('click', function(){
+  console.log('reset button');
+
+  for(let i = 0; i < canvasArea.length; i++){
+        console.log(canvasArea[i].classList);
+    
+      canvasArea[i].classList.replace(canvasArea[i].classList[1], paletteColors.classList[1]);
+
+      } 
+  
+})
+
+// iconPalette.addEventListener('click', function(){
+//   console.log('icon palette clicked');
+// })
