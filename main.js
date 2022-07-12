@@ -186,6 +186,9 @@ let white = document.querySelector('.palette-color color-8')
 let iconPalette = document.querySelector('.palette-icon');
 
 
+
+// DARK MODE 
+
 darkMode.addEventListener('click', function () {
   console.log('darkMode button');
 
